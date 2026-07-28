@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TerraCheck — Due diligence ambiental automatizada para terras rurais</title>
+<meta name="description" content="Descubra em minutos se um imóvel rural tem conflitos com CAR, embargos do IBAMA, desmatamento ou APP antes de comprar. Laudo completo por hectare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F1EDE3;
+    --paper-dim: #E7E1D2;
+    --ink: #1C2B22;
+    --ink-soft: #3A4A3E;
+    --line: #C9BFA8;
+    --soil: #B5652D;
+    --moss: #4C6B54;
+    --moss-deep: #33473A;
+    --alert-bg: #F3E3D6;
+    --ok-bg: #E1E8DD;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* topographic contour texture, layered radial rings */
+  .contour-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image:
+      repeating-radial-gradient(circle at 12% 18%, transparent 0, transparent 26px, var(--line) 27px, var(--line) 28px, transparent 29px),
+      repeating-radial-gradient(circle at 88% 82%, transparent 0, transparent 34px, var(--line) 35px, var(--line) 36px, transparent 37px);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  a { color: inherit; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--moss-deep);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--soil);
+    display: inline-block;
+    transform: rotate(45deg);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .logo span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--soil);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    padding: 10px 20px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    transition: background .15s ease, color .15s ease;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 40px 0 90px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.06;
+    margin: 18px 0 22px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--soil);
+  }
+  .hero p.lede {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 34px;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 15px 26px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform .15s ease, background .15s ease;
+    border: 1.5px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--moss-deep); border-color: var(--moss-deep); transform: translateY(-1px); }
+  .btn-ghost {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 2px;
+  }
+
+  /* ---------- REPORT STAMP CARD (signature element) ---------- */
+  .report-card {
+    position: relative;
+    background: #FBF9F3;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 26px 26px 22px;
+    box-shadow: 0 30px 60px -30px rgba(28,43,34,0.35);
+    transform: rotate(1.2deg);
+  }
+  .report-card::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .report-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .report-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  .report-coord {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .check-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #E9E3D5;
+    font-size: 14px;
+  }
+  .check-row:last-of-type { border-bottom: none; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .tag.ok { background: var(--ok-bg); color: var(--moss-deep); }
+  .tag.alert { background: var(--alert-bg); color: var(--soil); }
+
+  .stamp {
+    position: absolute;
+    top: -18px;
+    right: -14px;
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    border: 3px solid var(--soil);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-14deg);
+    background: rgba(241,237,227,0.9);
+  }
+  .stamp-inner {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--soil);
+    text-align: center;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+  }
+  .stamp-inner b { display: block; font-size: 13px; letter-spacing: 0.03em; }
+
+  /* ---------- SECTION shared ---------- */
+  section { position: relative; z-index: 1; padding: 84px 0; }
+  .section-head { max-width: 640px; margin-bottom: 52px; }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 38px); margin-top: 14px; line-height: 1.15; }
+  .section-head p { color: var(--ink-soft); margin-top: 14px; font-size: 16px; max-width: 56ch; }
+
+  /* ---------- PROBLEM ---------- */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .problem-cell {
+    background: var(--paper);
+    padding: 30px 26px;
+  }
+  .problem-cell .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--soil);
+    letter-spacing: 0.05em;
+  }
+  .problem-cell h3 {
+    font-size: 19px;
+    margin: 12px 0 10px;
+    font-weight: 500;
+  }
+  .problem-cell p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; counter-reset: step; }
+  .step { position: relative; padding-top: 8px; }
+  .step::before {
+    counter-increment: step;
+    content: "0" counter(step);
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: transparent;
+    -webkit-text-stroke: 1.4px var(--soil);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .step h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+  .step p { font-size: 14.5px; color: var(--ink-soft); }
+  .step-line {
+    position: absolute;
+    top: 26px; left: 60px; right: -40px;
+    height: 1px;
+    background: repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px);
+  }
+  .step:last-child .step-line { display: none; }
+
+  /* ---------- CHECKS GRID ---------- */
+  .checks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .check-card {
+    background: #FBF9F3;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px 18px;
+  }
+  .check-card .icon {
+    width: 30px; height: 30px;
+    border: 1.4px solid var(--moss);
+    border-radius: 50%;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .check-card .icon::after {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    background: var(--moss);
+    opacity: .35;
+  }
+  .check-card h4 { font-size: 14.5px; font-weight: 600; margin-bottom: 6px; }
+  .check-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+
+  /* ---------- PRICING ---------- */
+  .pricing-band {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+    padding: 52px 48px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .pricing-band .eyebrow { color: #C9BFA8; }
+  .pricing-band .eyebrow::before { background: #D98F5F; }
+  .pricing-band h2 { color: var(--paper); font-size: 30px; margin: 14px 0 16px; }
+  .pricing-band p { color: #CBD1C6; font-size: 15px; max-width: 46ch; }
+  .price-box {
+    background: #26362A;
+    border: 1px solid #3E5145;
+    border-radius: 5px;
+    padding: 28px;
+  }
+  .price-box .from { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #A9B5A0; letter-spacing: 0.05em; }
+  .price-box .amount { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; margin: 6px 0 2px; color: var(--paper); }
+  .price-box .per { font-size: 13px; color: #A9B5A0; }
+  .price-box hr { border: none; border-top: 1px solid #3E5145; margin: 18px 0; }
+  .price-box ul { list-style: none; font-size: 13.5px; color: #D6DBD1; }
+  .price-box li { padding: 5px 0; display: flex; gap: 8px; }
+  .price-box li::before { content: '—'; color: #D98F5F; }
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer {
+    position: relative; z-index: 1;
+    padding: 70px 0 50px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-grid { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 30px; }
+  .footer-cta h2 { font-size: 30px; max-width: 14ch; }
+  .footer-links {
+    display: flex; gap: 40px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft);
+  }
+  .footer-links a { text-decoration: none; border-bottom: 1px dashed var(--line); }
+  .footer-bottom {
+    margin-top: 50px; padding-top: 22px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+    flex-wrap: wrap; gap: 10px;
+  }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 34px; }
+    .step-line { display: none; }
+    .checks-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-band { grid-template-columns: 1fr; padding: 36px 26px; }
+    .report-card { transform: rotate(0); }
+  }
+  @media (max-width: 520px) {
+    .checks-grid { grid-template-columns: 1fr; }
+    nav { padding: 20px; }
+    .wrap { padding: 0 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+
+  :focus-visible { outline: 2px solid var(--soil); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div class="contour-bg"></div>
+
+<nav class="wrap">
+  <div class="logo">TerraCheck <span>DUE DILIGENCE GEOESPACIAL</span></div>
+  <a class="nav-cta" href="#contato">Solicitar laudo</a>
+</nav>
+
+<header class="wrap hero">
+  <div>
+    <div class="eyebrow">Antes de assinar a escritura</div>
+    <h1>Saiba o que existe <em>de verdade</em> na terra que você vai comprar.</h1>
+    <p class="lede">Nossa inteligência artificial compara o que foi declarado sobre o imóvel com o que a área realmente tem — em minutos, sem visita técnica. O mesmo laudo que hoje custa milhares de reais e semanas de trabalho manual, pronto na hora.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contato">Solicitar meu laudo</a>
+      <a class="btn-ghost" href="#como-funciona">Ver como funciona ↓</a>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="stamp">
+      <div class="stamp-inner">CONFLITO<br><b>DETECTADO</b></div>
+    </div>
+    <div class="report-head">
+      <span>ANÁLISE POR IA · TC-2607</span>
+      <span>28 JUL 2026</span>
+    </div>
+    <div class="report-title">Fazenda Santa Rita</div>
+    <div class="report-coord">22°53'S 48°26'W · 214,6 ha</div>
+
+    <div style="margin-top:18px;">
+      <div class="check-row"><span>Cadastro rural</span><span class="tag ok">Regular</span></div>
+      <div class="check-row"><span>Cobertura vegetal</span><span class="tag ok">Sem alerta</span></div>
+      <div class="check-row"><span>Restrições ambientais</span><span class="tag ok">Nenhuma</span></div>
+      <div class="check-row"><span>Área de preservação</span><span class="tag alert">2,1 ha em conflito</span></div>
+      <div class="check-row"><span>Recursos hídricos</span><span class="tag ok">3 identificados</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="wrap" id="problema">
+  <div class="section-head">
+    <div class="eyebrow">O risco que ninguém mostra na visita</div>
+    <h2>Terra rural no Brasil se compra às cegas — e isso custa caro.</h2>
+    <p>Restrições ambientais e desmatamento irregular não aparecem numa visita ao imóvel. Aparecem meses depois, num processo administrativo ou numa auditoria de exportação.</p>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-cell">
+      <div class="num">01 — Cadastro</div>
+      <h3>Cadastro que não bate com o real</h3>
+      <p>O que está declarado no papel frequentemente não corresponde ao uso real do solo — e isso só aparece com uma análise detalhada do terreno.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="num">02 — Restrições</div>
+      <h3>Herdar um problema que não era seu</h3>
+      <p>Uma restrição ambiental anterior pode continuar vinculada à área mesmo após a venda, travando financiamento e licenciamento futuro.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="num">03 — Exportação</div>
+      <h3>Exigências internacionais batendo à porta</h3>
+      <p>Com novas regras de rastreabilidade chegando em 2026, exportadores vão precisar comprovar origem livre de desmatamento — propriedade por propriedade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="diferencial">
+  <div class="section-head">
+    <div class="eyebrow">Nosso diferencial</div>
+    <h2>Declarado é uma coisa. Real é outra. Nossa IA mostra a diferença.</h2>
+    <p>Qualquer documento pode dizer o que quiser sobre um imóvel. Nossa inteligência artificial olha para a área de verdade — imagem por imagem, hectare por hectare — e aponta exatamente onde o que foi declarado diverge do que existe no terreno hoje.</p>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-cell">
+      <div class="num">Declarado</div>
+      <h3>O que consta no papel</h3>
+      <p>Limites, uso do solo e situação ambiental conforme informados pelo vendedor ou pelo cadastro oficial.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="num">↔ IA</div>
+      <h3>O que a IA compara</h3>
+      <p>Nosso modelo cruza essa declaração com evidências reais da área, sem depender de uma visita presencial.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="num">Real</div>
+      <h3>O que a área realmente tem</h3>
+      <p>Toda divergência entre o declarado e o real é sinalizada no laudo, com localização exata dentro da propriedade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="como-funciona">
+  <div class="section-head">
+    <div class="eyebrow">Do endereço ao laudo</div>
+    <h2>Três passos, sem visita técnica.</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"></div>
+      <h3>Você informa a área</h3>
+      <p>Coordenadas, matrícula ou número do cadastro — o que você já tiver em mãos.</p>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <h3>Nossa IA compara declarado vs. real</h3>
+      <p>O modelo analisa a área automaticamente e confronta com o que foi informado sobre ela.</p>
+    </div>
+    <div class="step">
+      <h3>Você recebe o laudo em PDF</h3>
+      <p>Um documento claro, com cada divergência localizada no mapa e explicada em linguagem direta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="verificacoes">
+  <div class="section-head">
+    <div class="eyebrow">Cobertura da análise</div>
+    <h2>O que entra no laudo.</h2>
+  </div>
+  <div class="checks-grid">
+    <div class="check-card"><div class="icon"></div><h4>Identificação do imóvel</h4><p>Localização espacial precisa e comparação com o cadastro declarado.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Cobertura vegetal</h4><p>Alertas de supressão de vegetação nativa dentro e no entorno da área.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Restrições ambientais</h4><p>Consulta a autuações e restrições ambientais vinculadas à propriedade.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Áreas de preservação</h4><p>Cálculo de áreas protegidas conforme relevo, topografia e proximidade de nascentes.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Recursos hídricos</h4><p>Nascentes, drenagem e reservatórios identificados a partir do relevo do terreno.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Comunidades e servidões</h4><p>Sobreposição com territórios tradicionais e faixas de servidão.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Imagens de satélite</h4><p>Verificação visual ao longo do tempo para confirmar o uso atual do solo.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Relatório final</h4><p>Documento com mapas, laudo técnico e classificação de risco da área.</p></div>
+  </div>
+</section>
+
+<footer class="wrap" id="contato">
+  <div class="footer-grid">
+    <div class="footer-cta">
+      <div class="eyebrow">Pronto para checar uma área?</div>
+      <h2>Fale com a gente antes de fechar negócio.</h2>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:contato@terracheck.com.br">contato@terracheck.com.br</a>
+      <a href="https://wa.me/55" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>TerraCheck © 2026</span>
+    <span>Botucatu, SP — Brasil</span>
+  </div>
+</footer>
+
+</body>
+</html>
