@@ -449,10 +449,50 @@
     color: var(--ink-soft);
   }
 
+  /* ---------- FAQ ---------- */
+  .faq-list {
+    max-width: 780px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--soil);
+    flex-shrink: 0;
+    transition: transform .15s ease;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    margin-top: 14px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 68ch;
+  }
+  .faq-item p a { color: var(--moss-deep); border-bottom: 1px dashed var(--line); text-decoration: none; }
+
   /* ---------- TEAM ---------- */
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 22px;
   }
   .founder-card {
@@ -801,6 +841,43 @@
   </div>
 </section>
 
+<section class="wrap" id="faq">
+  <div class="section-head">
+    <div class="eyebrow">Perguntas frequentes</div>
+    <h2>Como funciona, na prática.</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>Como a TerraCheck analisa uma propriedade?</summary>
+      <p>Você informa coordenadas, número de CAR ou matrícula do imóvel. A plataforma cruza automaticamente essa área com bases públicas (SICAR, IBAMA, MapBiomas), imagens de satélite (Sentinel-2, CBERS) e modelos geoespaciais, e gera um laudo com o que foi declarado versus o que existe de fato na área.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Quanto tempo demora?</summary>
+      <p>Entre 12 e 20 minutos, dependendo do tamanho da propriedade e da quantidade de camadas processadas (hidrografia, reserva legal, APP, embargos, linhas de transmissão, entre outras).</p>
+    </details>
+    <details class="faq-item">
+      <summary>Preciso de algum dado técnico pra começar?</summary>
+      <p>Não. Basta ter as coordenadas, o número do CAR ou a matrícula do imóvel — o que você já tiver em mãos. Não é preciso enviar arquivos, shapefiles ou fazer visita técnica.</p>
+    </details>
+    <details class="faq-item">
+      <summary>O laudo substitui um laudo técnico ou parecer jurídico?</summary>
+      <p>Não. O TerraCheck é uma ferramenta de triagem e apoio à decisão — não é órgão certificador nem substitui consultas ao SICAR, INCRA/SIGEF, IBAMA, cartórios ou a avaliação de um profissional habilitado. Detalhes completos no <a href="aviso-legal.html">Aviso Legal</a>.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Como funciona o pagamento?</summary>
+      <p>Via PIX, direto na plataforma. Você vê o valor da análise antes de confirmar, e o processamento começa assim que o pagamento é confirmado — sem contrato, sem mensalidade obrigatória.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Vocês usam inteligência artificial no laudo?</summary>
+      <p>Sim, em algumas verificações — como classificação de uso do solo e detecção de conflitos. Modelos de IA têm limitações e podem gerar falsos positivos ou negativos, por isso cada alerta do laudo indica o que precisa de verificação manual, em vez de apresentar conclusões definitivas.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Meus dados e os da propriedade ficam seguros?</summary>
+      <p>Sim. Coordenadas, CAR e dados de pagamento são tratados conforme nossa <a href="privacidade.html">Política de Privacidade</a>, em conformidade com a LGPD. Não vendemos dados a terceiros.</p>
+    </details>
+  </div>
+</section>
+
 <section class="wrap" id="equipe">
   <div class="section-head">
     <div class="eyebrow">Quem está por trás</div>
@@ -813,7 +890,7 @@
       <div class="avatar">A</div>
       <h3>Álvaro de Souza</h3>
       <div class="role">Fundador — Engenharia & Produto</div>
-      <p class="bio">Responsável pela arquitetura e desenvolvimento da plataforma TerraCheck.</p>
+      <p class="bio">Projetou e construiu a plataforma TerraCheck do zero — da arquitetura em nuvem ao pipeline de análise geoespacial e ao sistema de geração dos laudos — e segue à frente do desenvolvimento do produto.</p>
       <a class="founder-link" href="https://www.linkedin.com/in/alvaro-de-souza/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
     <div class="founder-card">
@@ -821,23 +898,15 @@
       <div class="avatar">T</div>
       <h3>Tanja Runk</h3>
       <div class="role">Cofundadora — CS</div>
-      <p class="bio">Responsável pelo sucesso do cliente na TerraCheck.</p>
+      <p class="bio">Estruturou o atendimento e o relacionamento com os primeiros clientes da TerraCheck. Hoje acompanha cada cliente do primeiro contato até a entrega do laudo.</p>
       <a class="founder-link" href="https://www.linkedin.com/in/tanja-runk-de-souza-12587422/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-    <div class="founder-card">
-      <!-- SUBSTITUIR: troque background-image por foto real (avatar) -->
-      <div class="avatar">M</div>
-      <h3>Mathias Runk</h3>
-      <div class="role">Cofundador — Comercial</div>
-      <p class="bio">Responsável pelo comercial da TerraCheck.</p>
-      <a class="founder-link" href="https://www.linkedin.com/in/mathias-runk-3935a8235/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
     <div class="founder-card">
       <!-- SUBSTITUIR: troque background-image por foto real (avatar). Lucas ainda não tem link público — ver nota abaixo -->
       <div class="avatar">L</div>
       <h3>Lucas DEV</h3>
       <div class="role">Programador & Desenvolvedor</div>
-      <p class="bio">Responsável pelo desenvolvimento da plataforma TerraCheck.</p>
+      <p class="bio">Entrou no time para acelerar o desenvolvimento da plataforma e hoje divide com Álvaro a manutenção e a evolução do sistema.</p>
     </div>
   </div>
 </section>
