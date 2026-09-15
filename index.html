@@ -201,6 +201,53 @@
     padding-bottom: 2px;
   }
 
+  /* ---------- HERO VIDEO / REAL PRODUCT ---------- */
+  .hero-video-card {
+    background: #FBF9F3;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 30px 60px -30px rgba(28,43,34,0.42);
+  }
+  .hero-video-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 2px 2px 10px;
+  }
+  .hero-video-topline .live-badge { margin-bottom: 0; }
+  .hero-video-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    color: var(--ink-soft);
+  }
+  .hero-demo-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    background: #17231B;
+  }
+  .hero-video-caption {
+    display: grid;
+    gap: 3px;
+    padding: 12px 4px 3px;
+  }
+  .hero-video-caption strong {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .hero-video-caption span {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
   /* ---------- REPORT STAMP CARD (signature element) ---------- */
   .report-card {
     position: relative;
@@ -609,6 +656,110 @@
   .price-box li { padding: 5px 0; display: flex; gap: 8px; }
   .price-box li::before { content: '—'; color: #D98F5F; }
 
+  .pricing-expanded {
+    grid-template-columns: .78fr 1.22fr;
+    align-items: stretch;
+  }
+  .pricing-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .pricing-highlight {
+    margin: 22px 0 24px;
+    padding: 16px 18px;
+    width: 100%;
+    border: 1px solid #3E5145;
+    border-left: 3px solid #D98F5F;
+    border-radius: 4px;
+    background: #26362A;
+    display: grid;
+    gap: 2px;
+  }
+  .pricing-highlight span,
+  .pricing-highlight small {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #A9B5A0;
+    font-size: 11px;
+    letter-spacing: .04em;
+  }
+  .pricing-highlight strong {
+    font-family: 'Fraunces', serif;
+    color: var(--paper);
+    font-size: 38px;
+    line-height: 1.1;
+  }
+  .price-examples {
+    background: #FBF9F3;
+    color: var(--ink);
+    border-radius: 5px;
+    padding: 24px;
+    border: 1px solid #3E5145;
+  }
+  .price-examples-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .price-examples-head > div { display: grid; gap: 4px; }
+  .price-examples-head strong {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .price-table-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .07em;
+    color: var(--soil);
+  }
+  .discount-pill {
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--soil);
+    padding: 7px 10px;
+    border-radius: 999px;
+  }
+  .price-table-scroll { overflow-x: auto; }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .price-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    font-weight: 500;
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-table th:nth-child(2), .price-table th:nth-child(3),
+  .price-table td:nth-child(2), .price-table td:nth-child(3) { text-align: right; }
+  .price-table td {
+    padding: 10px;
+    border-bottom: 1px solid #E3DDCF;
+    white-space: nowrap;
+  }
+  .price-table tbody tr:last-child td { border-bottom: none; }
+  .old-price { color: #7F877F; text-decoration: line-through; }
+  .promo-price { color: var(--moss-deep); font-weight: 700; }
+  .price-note {
+    margin: 14px 0 0 !important;
+    max-width: none !important;
+    color: var(--ink-soft) !important;
+    font-size: 11.5px !important;
+    line-height: 1.45;
+  }
+
   /* ---------- PROMO BAR ---------- */
   .promo-bar {
     position: sticky;
@@ -626,6 +777,31 @@
     font-size: 13.5px;
     box-shadow: 0 1px 0 rgba(0,0,0,0.08);
   }
+  .promo-price {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .promo-price-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.92;
+  }
+  .promo-price-value {
+    color: var(--paper);
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .promo-off { font-weight: 700; }
+  .promo-sep { opacity: 0.7; }
   .promo-bar strong { color: var(--paper); }
   .promo-bar a {
     font-family: 'IBM Plex Mono', monospace;
@@ -667,12 +843,27 @@
     .product-gallery { grid-template-columns: 1fr; }
     .camadas-list { grid-template-columns: 1fr; }
     .pricing-band { grid-template-columns: 1fr; padding: 36px 26px; }
+    .pricing-expanded { grid-template-columns: 1fr; }
+    .hero-video-card { max-width: 760px; width: 100%; margin: 0 auto; }
     .report-card { transform: rotate(0); }
   }
   @media (max-width: 520px) {
     .checks-grid { grid-template-columns: 1fr; }
     nav { padding: 20px; }
     .wrap { padding: 0 20px; }
+    .hero { padding-top: 28px; gap: 34px; }
+    .hero-video-topline { align-items: flex-start; }
+    .hero-video-kicker { display: none; }
+    .pricing-band { padding: 30px 20px; }
+    .price-examples { padding: 18px 14px; }
+    .price-examples-head strong { font-size: 19px; }
+    .price-table { font-size: 12.5px; }
+    .price-table th, .price-table td { padding-left: 7px; padding-right: 7px; }
+    .promo-bar { gap: 8px; padding: 9px 12px; }
+    .promo-price { gap: 5px; }
+    .promo-price-value { font-size: 18px; }
+    .promo-price-label { font-size: 9.5px; }
+    .promo-bar a { font-size: 11.5px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -686,8 +877,13 @@
 <body>
 
 <div class="promo-bar">
-  <span><strong>25% de desconto</strong> na análise completa — por tempo limitado</span>
-  <a href="https://app.terracheck.com.br/registrar">Solicitar meu laudo com desconto ↗</a>
+  <span class="promo-price">
+    <span class="promo-price-label">Análises a partir de</span>
+    <strong class="promo-price-value">R$ 90</strong>
+    <span class="promo-sep">•</span>
+    <span><strong class="promo-off">25% OFF</strong> por tempo limitado</span>
+  </span>
+  <a href="https://app.terracheck.com.br/registrar">Consultar minha propriedade ↗</a>
 </div>
 
 <div class="contour-bg"></div>
@@ -699,7 +895,7 @@
   </div>
   <div class="nav-links">
     <a class="btn-ghost" href="https://app.terracheck.com.br" target="_blank" rel="noopener">Acessar plataforma ↗</a>
-    <a class="nav-cta" href="https://app.terracheck.com.br/registrar">Solicitar laudo</a>
+    <a class="nav-cta" href="https://app.terracheck.com.br/registrar">Consultar propriedade</a>
   </div>
 </nav>
 
@@ -707,33 +903,28 @@
   <div>
     <div class="eyebrow">Antes de assinar a escritura</div>
     <h1>Saiba o que existe <em>de verdade</em> na terra que você vai comprar.</h1>
-    <p class="lede">Nossa inteligência artificial compara o que foi declarado sobre o imóvel com o que a área realmente tem — em minutos, sem visita técnica. O mesmo laudo que hoje custa milhares de reais e semanas de trabalho manual, pronto na hora.</p>
+    <p class="lede">Veja a plataforma funcionando e descubra, antes de fechar negócio, conflitos entre CAR, uso real do solo, APP, embargos, desmatamento e outras camadas ambientais.</p>
     <div class="hero-price">
-      Análises a partir de <strong>R$ 90</strong> — 25% de desconto por tempo limitado. Você vê o valor exato antes de pagar.
+      <strong>A partir de R$ 90</strong> com 25% de desconto por tempo limitado. Cadastro gratuito — você vê o valor exato da sua propriedade antes de pagar.
     </div>
     <div class="hero-ctas">
-      <a class="btn-primary" href="https://app.terracheck.com.br/registrar">Solicitar meu laudo</a>
-      <a class="btn-ghost" href="#como-funciona">Ver como funciona ↓</a>
+      <a class="btn-primary" href="https://app.terracheck.com.br/registrar">Consultar uma propriedade</a>
+      <a class="btn-ghost" href="#produto">Ver a plataforma ↓</a>
     </div>
   </div>
 
-  <div class="report-card">
-    <div class="stamp">
-      <div class="stamp-inner">CONFLITO<br><b>DETECTADO</b></div>
+  <div class="hero-video-card">
+    <div class="hero-video-topline">
+      <div class="live-badge"><span class="dot"></span>Produto real, em produção</div>
+      <span class="hero-video-kicker">DEMONSTRAÇÃO REAL</span>
     </div>
-    <div class="report-head">
-      <span>ANÁLISE POR IA · TC-2607</span>
-      <span>28 JUL 2026</span>
-    </div>
-    <div class="report-title">Fazenda Santa Rita</div>
-    <div class="report-coord">214,6 ha · Bioma Cerrado</div>
-
-    <div style="margin-top:18px;">
-      <div class="check-row"><span>Cadastro rural</span><span class="tag ok">Regular</span></div>
-      <div class="check-row"><span>Cobertura vegetal</span><span class="tag ok">Sem alerta</span></div>
-      <div class="check-row"><span>Restrições ambientais</span><span class="tag ok">Nenhuma</span></div>
-      <div class="check-row"><span>Área de preservação</span><span class="tag alert">2,1 ha em conflito</span></div>
-      <div class="check-row"><span>Recursos hídricos</span><span class="tag ok">3 identificados</span></div>
+    <video class="hero-demo-video" autoplay muted loop playsinline controls preload="metadata" poster="terracheck-demo-poster.jpg" aria-label="Demonstração real da plataforma TerraCheck em funcionamento">
+      <source src="terracheck-demo.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <div class="hero-video-caption">
+      <strong>Veja a análise acontecendo.</strong>
+      <span>Mapa, camadas ambientais, conflitos e score de risco na plataforma TerraCheck.</span>
     </div>
   </div>
 </header>
@@ -815,7 +1006,7 @@
   <div class="section-head">
     <div class="live-badge"><span class="dot"></span>Produto real, em produção</div>
     <h2>Isto não é conceito nem protótipo. É a plataforma no ar hoje.</h2>
-    <p>A TerraCheck é uma aplicação completa em operação, não uma página de espera. As capturas abaixo são da aplicação real: o mapa de análise geoespacial, os resultados do laudo (inclusive na versão mobile), o relatório final em PDF entregue ao cliente e o pagamento via PIX. Dados de imóveis identificáveis foram borrados por privacidade.</p>
+    <p>A demonstração acima e as capturas abaixo são da aplicação real: análise geoespacial, conflitos detectados, resultados do laudo, relatório final em PDF e pagamento via PIX. Dados de imóveis identificáveis foram borrados por privacidade.</p>
   </div>
 
   <div class="product-hero-grid">
@@ -868,24 +1059,45 @@
   </div>
 </section>
 
-<section class="wrap">
-  <div class="pricing-band">
-    <div>
-      <div class="eyebrow">Por tempo limitado</div>
-      <h2>25% de desconto na análise completa.</h2>
-      <p>O mesmo laudo de sempre — CAR, SIGEF, IBAMA, MapBiomas, Reserva Legal, APP e mais de 20 camadas geoespaciais cruzadas automaticamente — por um quarto a menos, aplicado direto na cotação, antes de você pagar.</p>
-      <a class="btn-invert" href="https://app.terracheck.com.br/registrar">Solicitar meu laudo com desconto ↗</a>
+<section class="wrap" id="precos">
+  <div class="pricing-band pricing-expanded">
+    <div class="pricing-intro">
+      <div class="eyebrow">Preço transparente</div>
+      <h2>Saiba quanto custa antes de pagar.</h2>
+      <p>O valor varia conforme a área do imóvel. A cotação é calculada automaticamente pela área identificada no CAR e aparece antes do PIX.</p>
+      <div class="pricing-highlight">
+        <span>A PARTIR DE</span>
+        <strong>R$ 90</strong>
+        <small>25% de desconto já aplicado por tempo limitado</small>
+      </div>
+      <a class="btn-invert" href="https://app.terracheck.com.br/registrar">Ver preço da minha propriedade ↗</a>
     </div>
-    <div class="price-box">
-      <div class="from">A PARTIR DE</div>
-      <div class="amount">R$ 90</div>
-      <div class="per">por análise — valor varia conforme o tamanho do imóvel</div>
-      <hr>
-      <ul>
-        <li>Já com 25% de desconto aplicado</li>
-        <li>Pagamento via PIX, sem mensalidade</li>
-        <li>Resultado em 12–20 minutos</li>
-      </ul>
+
+    <div class="price-examples" aria-label="Exemplos de preços da análise TerraCheck">
+      <div class="price-examples-head">
+        <div>
+          <span class="price-table-kicker">EXEMPLOS REAIS DE PREÇO</span>
+          <strong>Quanto custa por tamanho de área</strong>
+        </div>
+        <span class="discount-pill">25% OFF</span>
+      </div>
+      <div class="price-table-scroll">
+        <table class="price-table">
+          <thead>
+            <tr><th>Área do imóvel</th><th>Preço normal</th><th>Hoje</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>10 ha</td><td class="old-price">R$ 135,00</td><td class="promo-price">R$ 101,25</td></tr>
+            <tr><td>50 ha</td><td class="old-price">R$ 195,00</td><td class="promo-price">R$ 146,25</td></tr>
+            <tr><td>100 ha</td><td class="old-price">R$ 225,00</td><td class="promo-price">R$ 168,75</td></tr>
+            <tr><td>200 ha</td><td class="old-price">R$ 285,00</td><td class="promo-price">R$ 213,75</td></tr>
+            <tr><td>500 ha</td><td class="old-price">R$ 465,00</td><td class="promo-price">R$ 348,75</td></tr>
+            <tr><td>1.000 ha</td><td class="old-price">R$ 515,00</td><td class="promo-price">R$ 386,25</td></tr>
+            <tr><td>5.000 ha</td><td class="old-price">R$ 915,00</td><td class="promo-price">R$ 686,25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-note">Exemplos de referência. O valor exato é calculado pela área da propriedade antes do pagamento. Sem mensalidade.</p>
     </div>
   </div>
 </section>
