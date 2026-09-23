@@ -874,6 +874,46 @@
 
   :focus-visible { outline: 2px solid var(--soil); outline-offset: 2px; }
 </style>
+
+  <script type="application/ld+json" id="terracheck-structured-data">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://terracheck.com.br/#organization",
+        "name": "TerraCheck",
+        "url": "https://terracheck.com.br/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://terracheck.com.br/#website",
+        "url": "https://terracheck.com.br/",
+        "name": "TerraCheck",
+        "publisher": {
+          "@id": "https://terracheck.com.br/#organization"
+        },
+        "inLanguage": "pt-BR"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://terracheck.com.br/#service",
+        "name": "TerraCheck",
+        "url": "https://terracheck.com.br/",
+        "description": "Due diligence ambiental automatizada para imóveis rurais, com cruzamento de dados geoespaciais, ambientais e imagens de satélite.",
+        "provider": {
+          "@id": "https://terracheck.com.br/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Brasil"
+        },
+        "serviceType": "Due diligence ambiental e geoespacial de imóveis rurais"
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
