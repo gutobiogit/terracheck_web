@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TerraCheck — Due diligence ambiental automatizada para terras rurais</title>
-<meta name="description" content="Descubra em minutos se um imóvel rural tem conflitos com CAR, embargos do IBAMA, desmatamento ou APP antes de comprar. Laudo completo por hectare.">
+<meta name="description" content="Descubra em minutos se um imóvel rural tem conflitos com CAR, embargos do IBAMA, desmatamento ou APP antes de comprar. Relatório por análise, a partir de R$ 69,90 para imóveis de até 50 ha.">
 <link rel="canonical" href="https://terracheck.com.br/">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/embedded/18ea41b056e23717.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/embedded/21f987d8414cd698.png">
@@ -873,6 +873,55 @@
   }
 
   :focus-visible { outline: 2px solid var(--soil); outline-offset: 2px; }
+
+  /* Campaign-aligned institutional page */
+  :root { --soil: #5c8a52; }
+  section.wrap { padding-top: 64px; padding-bottom: 64px; }
+  .contour-bg { opacity: .1; }
+  .promo-bar { position: relative; background: var(--ink); }
+  .promo-bar span { color: var(--paper); }
+  .logo-text b { font: inherit; }
+  .logo-text .brand-check { display: inline; font: inherit; color: #5c8a52; letter-spacing: inherit; }
+  .logo-text > span { color: var(--ink-soft); font-size: 9px; }
+  .logo { gap: 3px; }
+  .logo-icon { width: 44px; height: 44px; }
+  .hero { padding-top: 45px; padding-bottom: 64px; gap: 40px; }
+  .hero h1 { font-size: clamp(48px, 6vw, 76px); max-width: 9ch; }
+  .hero .eyebrow { font-size: 10px; }
+  .hero-map { display: block; text-decoration: none; transform: rotate(1deg); }
+  .hero-map img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; background: #e5e9e1; border-radius: 4px; }
+  .section-head { margin-bottom: 30px; }
+  .check-card .icon { display: none; }
+  .checks-grid { grid-template-columns: repeat(4,1fr); }
+  .product-shot img { max-height: 550px; object-fit: contain; background: #ecefe8; }
+  .product-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+  .product-details, .technical-details { border: 1px solid var(--line); background: #fbf9f3; border-radius: 6px; padding: 22px; }
+  .product-details summary, .technical-details summary { cursor: pointer; font-weight: 600; padding: 4px; }
+  .product-details[open] > summary, .technical-details[open] > summary { margin-bottom: 26px; }
+  .product-details .hero-video-card { margin-top: 28px; max-width: 650px; }
+  .professional-band { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; padding: 40px; background: #e3e9dd; border: 1px solid #b8c9ae; border-radius: 8px; }
+  .professional-band h2 { font-size: clamp(28px,3vw,38px); line-height: 1.15; margin: 16px 0; }
+  .professional-band p { color: var(--ink-soft); }
+  .professional-band ul { padding-left: 20px; margin-top: 18px; font-size: 14px; }
+  .professional-band li { margin-top: 8px; }
+  .professional-offer { padding: 26px; background: #fbf9f3; border-radius: 6px; }
+  .professional-offer h3 { font-size: 26px; line-height: 1.15; margin: 12px 0; }
+  .professional-offer .btn-primary { margin-top: 20px; }
+  .professional-offer .offer-note { margin-top: 14px; font-size: 12px; }
+  .biome-band { padding: 34px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .biome-band h2 { font-size: 34px; margin: 16px 0; }
+  .biome-band > p { max-width: 70ch; color: var(--ink-soft); }
+  .biome-list { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+  .biome-list span { padding: 8px 14px; border-radius: 30px; border: 1px solid #b8c9ae; font-size: 13px; background: #e3e9dd; }
+  .biome-note { font-size: 12px; }
+  .pricing-intro .btn-invert { margin-top: 22px; }
+  .price-table { width: 100%; }
+  .price-table td { white-space: normal; }
+  .price-table td:last-child { font-weight: 600; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .hero-video-topline .live-badge { font-size: 10px; }
+  @media(max-width: 880px) { .professional-band { grid-template-columns: 1fr; gap: 26px; } .checks-grid { grid-template-columns: repeat(2,1fr); } .nav-section { display: none; } .hero h1 { max-width: 12ch; } }
+  @media(max-width: 520px) { nav { flex-wrap: wrap; gap: 20px; } .nav-links { width: 100%; justify-content: space-between; gap: 10px; } .nav-cta { padding: 9px 12px; font-size: 11px; } .nav-links .btn-ghost { font-size: 11px; } section.wrap { padding-top: 38px; padding-bottom: 38px; } .hero { padding-bottom: 40px; } .hero-map { transform: none; } .hero-ctas { align-items: flex-start; flex-direction: column; } .checks-grid { grid-template-columns: 1fr; } .professional-band { padding: 24px 18px; } .professional-offer { padding: 22px 18px; } .product-row { grid-template-columns: 1fr; } .product-details, .technical-details { padding: 18px; } .footer-links { flex-wrap: wrap; gap: 20px; } .price-table { font-size: 11.5px; } .price-table td:last-child { min-width: 85px; } }
 </style>
 
   <script type="application/ld+json" id="terracheck-structured-data">
@@ -918,23 +967,17 @@
 <body>
 
 <div class="promo-bar">
-  <span class="promo-price">
-    <span class="promo-price-label">Análises a partir de</span>
-    <strong class="promo-price-value">R$ 90</strong>
-    <span class="promo-sep">•</span>
-    <span><strong class="promo-off">25% OFF</strong> por tempo limitado</span>
-  </span>
-  <a href="https://app.terracheck.com.br/registrar">Consultar minha propriedade ↗</a>
+  <span>Análise individual a partir de <strong>R$ 69,90</strong> <span class="promo-sep">·</span> até 50 ha</span>
+  <a href="#precos">Consultar preços ↓</a>
 </div>
-
 <div class="contour-bg"></div>
 
 <nav class="wrap">
   <div class="logo">
     <svg class="logo-icon" viewBox="0 0 300 300" width="64" height="64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M95,140 C75,165 100,200 130,205 C175,180 210,120 240,70 C215,100 180,150 138,185 C112,178 100,160 95,140 Z" fill="#5c8a52"/></svg>
-    <span class="logo-text">TerraCheck <span>DUE DILIGENCE GEOESPACIAL</span></span>
+    <span class="logo-text"><b>Terra<span class="brand-check">Check</span></b><span>DUE DILIGENCE GEOESPACIAL</span></span>
   </div>
-  <div class="nav-links">
+  <div class="nav-links"><a class="btn-ghost nav-section" href="#profissionais">Para profissionais</a>
     <a class="btn-ghost" href="https://app.terracheck.com.br" target="_blank" rel="noopener">Acessar plataforma ↗</a>
     <a class="nav-cta" href="https://app.terracheck.com.br/registrar">Consultar propriedade</a>
   </div>
@@ -942,169 +985,78 @@
 
 <header class="wrap hero">
   <div>
-    <div class="eyebrow">Antes de assinar a escritura</div>
-    <h1>Saiba o que existe <em>de verdade</em> na terra que você vai comprar.</h1>
-    <p class="lede">Veja a plataforma funcionando e descubra, antes de fechar negócio, conflitos entre CAR, uso real do solo, APP, embargos, desmatamento e outras camadas ambientais.</p>
+    <div class="eyebrow">Due diligence ambiental e geoespacial</div>
+    <h1>Enxergue <em>além do CAR.</em></h1>
+    <p class="lede">Cruze o cadastro do imóvel com imagens de satélite e bases oficiais. Localize possíveis sobreposições e conflitos ambientais antes de comprar, vender ou orientar um cliente.</p>
     <div class="hero-price">
-      <strong>A partir de R$ 90</strong> com 25% de desconto por tempo limitado. Cadastro gratuito — você vê o valor exato da sua propriedade antes de pagar.
+      <strong>R$ 69,90 por análise em imóveis de até 50 ha.</strong><br>PIX ou cartão em até 6x. Consulte o valor pela área antes de pagar.
     </div>
     <div class="hero-ctas">
-      <a class="btn-primary" href="https://app.terracheck.com.br/registrar">Consultar uma propriedade</a>
-      <a class="btn-ghost" href="#produto">Ver a plataforma ↓</a>
+      <a class="btn-primary" href="https://demo.terracheck.com.br">Experimentar a demonstração ↗</a>
+      <a class="btn-ghost" href="https://app.terracheck.com.br/registrar">Analisar meu imóvel ↗</a>
     </div>
   </div>
 
-  <div class="hero-video-card">
-    <div class="hero-video-topline">
-      <div class="live-badge"><span class="dot"></span>Produto real, em produção</div>
-      <span class="hero-video-kicker">DEMONSTRAÇÃO REAL</span>
-    </div>
-    <video class="hero-demo-video" autoplay muted loop playsinline controls preload="metadata" poster="terracheck-demo-poster.jpg" aria-label="Demonstração real da plataforma TerraCheck em funcionamento">
-      <source src="terracheck-demo.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo HTML5.
-    </video>
-    <div class="hero-video-caption">
-      <strong>Veja a análise acontecendo.</strong>
-      <span>Mapa, camadas ambientais, conflitos e score de risco na plataforma TerraCheck.</span>
-    </div>
-  </div>
-</header>
-
-<section class="wrap" id="precos">
-  <div class="pricing-band pricing-expanded">
-    <div class="pricing-intro">
-      <div class="eyebrow">Preço transparente</div>
-      <h2>Saiba quanto custa antes de pagar.</h2>
-      <p>O valor varia conforme a área do imóvel. A cotação é calculada automaticamente pela área identificada no CAR e aparece antes do PIX.</p>
-      <div class="pricing-highlight">
-        <span>A PARTIR DE</span>
-        <strong>R$ 90</strong>
-        <small>25% de desconto já aplicado por tempo limitado</small>
-      </div>
-      <a class="btn-invert" href="https://app.terracheck.com.br/registrar">Ver preço da minha propriedade ↗</a>
-    </div>
-
-    <div class="price-examples" aria-label="Exemplos de preços da análise TerraCheck">
-      <div class="price-examples-head">
-        <div>
-          <span class="price-table-kicker">EXEMPLOS REAIS DE PREÇO</span>
-          <strong>Quanto custa por tamanho de área</strong>
-        </div>
-        <span class="discount-pill">25% OFF</span>
-      </div>
-      <div class="price-table-scroll">
-        <table class="price-table">
-          <thead>
-            <tr><th>Área do imóvel</th><th>Preço normal</th><th>Hoje</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>10 ha</td><td class="old-price">R$ 135,00</td><td class="promo-price">R$ 101,25</td></tr>
-            <tr><td>50 ha</td><td class="old-price">R$ 195,00</td><td class="promo-price">R$ 146,25</td></tr>
-            <tr><td>100 ha</td><td class="old-price">R$ 225,00</td><td class="promo-price">R$ 168,75</td></tr>
-            <tr><td>200 ha</td><td class="old-price">R$ 285,00</td><td class="promo-price">R$ 213,75</td></tr>
-            <tr><td>500 ha</td><td class="old-price">R$ 465,00</td><td class="promo-price">R$ 348,75</td></tr>
-            <tr><td>1.000 ha</td><td class="old-price">R$ 515,00</td><td class="promo-price">R$ 386,25</td></tr>
-            <tr><td>5.000 ha</td><td class="old-price">R$ 915,00</td><td class="promo-price">R$ 686,25</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="price-note">Exemplos de referência. O valor exato é calculado pela área da propriedade antes do pagamento. Sem mensalidade.</p>
-    </div>
-  </div>
-</section>
-
-
-<section class="wrap" id="problema">
+  <a class="hero-video-card hero-map" href="https://demo.terracheck.com.br" aria-label="Experimentar a demonstração TerraCheck">
+    <div class="hero-video-topline"><span class="live-badge"><span class="dot"></span>Mapa da plataforma real</span><span class="hero-video-kicker">CAR + SATÉLITE</span></div>
+    <img src="/assets/embedded/287e888427be6478.jpg" alt="Mapa real do TerraCheck com camadas ambientais e áreas de conflito destacadas" width="960" height="600" fetchpriority="high">
+    <div class="hero-video-caption"><strong>O alerta tem endereço no mapa.</strong><span>Explore a demonstração e veja como o relatório organiza os resultados. ↗</span></div>
+  </a>
+</header><section class="wrap" id="como-funciona">
   <div class="section-head">
-    <div class="eyebrow">O risco que ninguém mostra na visita</div>
-    <h2>Terra rural no Brasil se compra às cegas — e isso custa caro.</h2>
-    <p>Restrições ambientais e desmatamento irregular não aparecem numa visita ao imóvel. Aparecem meses depois, num processo administrativo ou numa auditoria de exportação.</p>
-  </div>
-  <div class="problem-grid">
-    <div class="problem-cell">
-      <div class="num">01 — Cadastro</div>
-      <h3>Cadastro que não bate com o real</h3>
-      <p>O que está declarado no papel frequentemente não corresponde ao uso real do solo — e isso só aparece com uma análise detalhada do terreno.</p>
-    </div>
-    <div class="problem-cell">
-      <div class="num">02 — Restrições</div>
-      <h3>Herdar um problema que não era seu</h3>
-      <p>Uma restrição ambiental anterior pode continuar vinculada à área mesmo após a venda, travando financiamento e licenciamento futuro.</p>
-    </div>
-    <div class="problem-cell">
-      <div class="num">03 — Exportação</div>
-      <h3>Exigências internacionais batendo à porta</h3>
-      <p>Com novas regras de rastreabilidade chegando em 2026, exportadores vão precisar comprovar origem livre de desmatamento — propriedade por propriedade.</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" id="diferencial">
-  <div class="section-head">
-    <div class="eyebrow">Nosso diferencial</div>
-    <h2>Declarado é uma coisa. Real é outra. Nossa IA mostra a diferença.</h2>
-    <p>Qualquer documento pode dizer o que quiser sobre um imóvel. Nossa inteligência artificial olha para a área de verdade — imagem por imagem, hectare por hectare — e aponta exatamente onde o que foi declarado diverge do que existe no terreno hoje.</p>
-  </div>
-  <div class="problem-grid">
-    <div class="problem-cell">
-      <div class="num">Declarado</div>
-      <h3>O que consta no papel</h3>
-      <p>Limites, uso do solo e situação ambiental conforme informados pelo vendedor ou pelo cadastro oficial.</p>
-    </div>
-    <div class="problem-cell">
-      <div class="num">↔ IA</div>
-      <h3>O que a IA compara</h3>
-      <p>Nosso modelo cruza essa declaração com evidências reais da área, sem depender de uma visita presencial.</p>
-    </div>
-    <div class="problem-cell">
-      <div class="num">Real</div>
-      <h3>O que a área realmente tem</h3>
-      <p>Toda divergência entre o declarado e o real é sinalizada no laudo, com localização exata dentro da propriedade.</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap" id="como-funciona">
-  <div class="section-head">
-    <div class="eyebrow">Do endereço ao laudo</div>
-    <h2>Três passos, sem visita técnica.</h2>
+    <div class="eyebrow">Da localização ao relatório</div>
+    <h2>Da área ao relatório, em três passos.</h2>
   </div>
   <div class="steps">
     <div class="step">
       <div class="step-line"></div>
       <h3>Você informa a área</h3>
-      <p>Coordenadas, matrícula ou número do cadastro — o que você já tiver em mãos.</p>
+      <p>Localize o imóvel por coordenadas ou número do CAR na plataforma.</p>
     </div>
     <div class="step">
       <div class="step-line"></div>
-      <h3>Nossa IA compara declarado vs. real</h3>
-      <p>O modelo analisa a área automaticamente e confronta com o que foi informado sobre ela.</p>
+      <h3>Confira o preço e solicite a análise</h3>
+      <p>Veja o valor conforme a área e pague por PIX ou cartão. O processamento começa após a confirmação.</p>
     </div>
     <div class="step">
-      <h3>Você recebe o laudo em PDF</h3>
-      <p>Um documento claro, com cada divergência localizada no mapa e explicada em linguagem direta.</p>
+      <h3>Explore o mapa e baixe o PDF</h3>
+      <p>Consulte os resultados, localize alertas e compartilhe o relatório para apoiar a decisão.</p>
     </div>
   </div>
-</section>
-
-<section class="wrap" id="produto">
+</section><section class="wrap" id="verificacoes">
+  <div class="section-head">
+    <div class="eyebrow">Cobertura da análise</div>
+    <h2>Veja onde os dados pedem atenção.</h2><p>CAR, imagens de satélite e bases oficiais reunidos em uma análise. Cada alerta indica um ponto a verificar.</p>
+  </div>
+  <div class="checks-grid">
+    <div class="check-card"><div class="icon"></div><h4>Sobreposição de CAR</h4><p>Interseções entre o CAR analisado e os cadastros de imóveis vizinhos.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Cobertura vegetal</h4><p>Alertas de supressão de vegetação nativa dentro e no entorno da área.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Restrições ambientais</h4><p>Consulta a autuações e restrições ambientais vinculadas à propriedade.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Áreas de preservação</h4><p>APP ciliar, nascentes e áreas de relevo, como topo de morro, conforme os critérios aplicáveis.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Recursos hídricos</h4><p>Drenagem e nascentes estimadas pelo relevo; reservatórios declarados comparados às imagens.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Comunidades e servidões</h4><p>Sobreposição com territórios tradicionais e faixas de servidão.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Reserva Legal</h4><p>Comparação da área declarada com a cobertura do solo e possíveis conflitos de uso.</p></div>
+    <div class="check-card"><div class="icon"></div><h4>Relatório final</h4><p>Mapas, verificações e classificação de risco para apoiar sua avaliação.</p></div>
+  </div>
+</section><section class="wrap" id="produto">
   <div class="section-head">
     <div class="live-badge"><span class="dot"></span>Produto real, em produção</div>
-    <h2>Isto não é conceito nem protótipo. É a plataforma no ar hoje.</h2>
-    <p>A demonstração acima e as capturas abaixo são da aplicação real: análise geoespacial, conflitos detectados, resultados do laudo, relatório final em PDF e pagamento via PIX. Dados de imóveis identificáveis foram borrados por privacidade.</p>
+    <h2>Veja o mapa. Entenda o relatório.</h2>
+    <p>Capturas da plataforma em funcionamento: camadas sobre o imóvel, resultados das verificações e o relatório em PDF. Dados identificáveis foram borrados por privacidade.</p>
   </div>
 
   <div class="product-hero-grid">
     <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/287e888427be6478.jpg" alt="Mapa da plataforma TerraCheck mostrando conflito entre area de preservacao permanente e represa em imovel rural de Barretos, SP, com score de risco alto">
+        <img loading="lazy" src="/assets/embedded/287e888427be6478.jpg" alt="Mapa da plataforma TerraCheck mostrando conflito entre area de preservacao permanente e represa em imovel rural de Barretos, SP, com score de risco alto">
       </div>
-      <div class="shot-caption"><span class="shot-title">Conflito detectado em represa real</span><span>app.terracheck.com.br</span></div>
-      <p class="shot-desc">Vermelho = área onde a Reserva Legal deveria ter vegetação nativa, mas foi ocupada. A TerraCheck acha isso cruzando o CAR com imagem de satélite.</p>
+      <div class="shot-caption"><span class="shot-title">Um possível conflito, localizado no mapa</span><span>app.terracheck.com.br</span></div>
+      <p class="shot-desc">As áreas destacadas localizam possíveis conflitos. Compare o cadastro com as imagens e consulte a explicação de cada alerta no relatório.</p>
     </div>
-    <div class="product-item">
+</div>
+<details class="product-details"><summary>Ver mais telas e vídeo da plataforma</summary><div class="product-row">    <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/aacb0c2b7d9c3298.jpg" alt="Tela de processamento da TerraCheck mostrando as etapas da analise em andamento, com tempo estimado de 12 a 20 minutos">
+        <img loading="lazy" src="/assets/embedded/aacb0c2b7d9c3298.jpg" alt="Tela de processamento da TerraCheck mostrando as etapas da analise em andamento, com tempo estimado de 12 a 20 minutos">
       </div>
       <div class="shot-caption"><span class="shot-title">Análise rodando ao vivo</span><span>12–20 min</span></div>
     </div>
@@ -1113,71 +1065,72 @@
   <div class="product-row">
     <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/b3b58c13b1d48649.png" alt="Resultado do laudo TerraCheck mostrando Reserva Legal, Área de Preservação Permanente e recursos hídricos, versão mobile">
+        <img loading="lazy" src="/assets/embedded/b3b58c13b1d48649.png" alt="Resultado do laudo TerraCheck mostrando Reserva Legal, Área de Preservação Permanente e recursos hídricos, versão mobile">
       </div>
       <div class="shot-caption"><span class="shot-title">Reserva Legal & APP</span><span>Versão mobile</span></div>
-      <p class="shot-desc">Declarado no CAR vs. real por satélite, com o déficit se houver — mais nascentes e cursos d'água identificados na propriedade.</p>
+      <p class="shot-desc">Compare APP e Reserva Legal declaradas com os resultados da análise de cobertura do solo e hidrografia.</p>
     </div>
     <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/0efc969ec066d836.png" alt="Resultado do laudo TerraCheck mostrando uso do solo da propriedade e sobreposições com linhas de transmissão, versão mobile">
+        <img loading="lazy" src="/assets/embedded/0efc969ec066d836.png" alt="Resultado do laudo TerraCheck mostrando uso do solo da propriedade e sobreposições com linhas de transmissão, versão mobile">
       </div>
       <div class="shot-caption"><span class="shot-title">Uso do solo & sobreposições</span><span>Versão mobile</span></div>
       <p class="shot-desc">Percentual de cada uso do solo por satélite, e sobreposições com restrições externas, como faixa de linha de transmissão.</p>
     </div>
     <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/6ec65a005e4308e3.png" alt="Primeira página do relatório de due diligence ambiental em PDF gerado pela TerraCheck, com score de risco e tabela de verificações">
+        <img loading="lazy" src="/assets/embedded/6ec65a005e4308e3.png" alt="Primeira página do relatório de due diligence ambiental em PDF gerado pela TerraCheck, com score de risco e tabela de verificações">
       </div>
       <div class="shot-caption"><span class="shot-title">Laudo em PDF</span><span>Documento entregável</span></div>
     </div>
     <div class="product-item">
       <div class="product-shot">
-        <img src="/assets/embedded/22bd8ca07e33d86e.jpg" alt="Tela de pagamento da TerraCheck mostrando cotacao da analise, area do imovel e pagamento via PIX">
+        <img loading="lazy" src="/assets/embedded/22bd8ca07e33d86e.jpg" alt="Tela de pagamento da TerraCheck mostrando cotacao da analise, area do imovel e pagamento via PIX">
       </div>
       <div class="shot-caption"><span class="shot-title">Checkout PIX</span><span>Pagamento ao vivo</span></div>
     </div>
   </div>
+  <div class="hero-video-card">
+    <div class="hero-video-topline">
+      <div class="live-badge"><span class="dot"></span>Produto real, em produção</div>
+      <span class="hero-video-kicker">DEMONSTRAÇÃO REAL</span>
+    </div>
+    <video class="hero-demo-video" muted playsinline controls preload="none" poster="terracheck-demo-poster.jpg" aria-label="Demonstração real da plataforma TerraCheck em funcionamento">
+      <source src="terracheck-demo.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <div class="hero-video-caption">
+      <strong>Veja a análise acontecendo.</strong>
+      <span>Mapa, camadas ambientais, conflitos e score de risco na plataforma TerraCheck.</span>
+    </div>
+  </div>
+</details>
   <div class="product-cta">
-    <a class="btn-primary" href="https://app.terracheck.com.br" target="_blank" rel="noopener">Acessar a plataforma agora ↗</a>
-    <span class="mono-note">app.terracheck.com.br — a mesma aplicação das capturas acima, no ar agora</span>
+    <a class="btn-primary" href="https://demo.terracheck.com.br">Explorar a demonstração ↗</a>
+    <span class="mono-note">Conheça a experiência antes de solicitar sua análise.</span>
   </div>
-</section>
-
-
-<section class="wrap">
-  <div class="ibama-band">
-    <div class="eyebrow">O dado que quase ninguém confere antes de comprar</div>
-    <h2>Veja como o IBAMA enxerga a sua área.</h2>
-    <p>Cruzamos o perímetro do imóvel com a base de embargos e autuações ambientais ativas — o mesmo dado que pode travar financiamento, licenciamento ou exportação anos depois da compra.</p>
-    <a class="btn-invert" href="#verificacoes">Ver o que mais entra no laudo ↓</a>
-  </div>
-</section>
-
-<section class="wrap" id="verificacoes">
-  <div class="section-head">
-    <div class="eyebrow">Cobertura da análise</div>
-    <h2>O que entra no laudo.</h2>
-  </div>
-  <div class="checks-grid">
-    <div class="check-card"><div class="icon"></div><h4>Identificação do imóvel</h4><p>Localização espacial precisa e comparação com o cadastro declarado.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Cobertura vegetal</h4><p>Alertas de supressão de vegetação nativa dentro e no entorno da área.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Restrições ambientais</h4><p>Consulta a autuações e restrições ambientais vinculadas à propriedade.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Áreas de preservação</h4><p>Cálculo de áreas protegidas conforme relevo, topografia e proximidade de nascentes.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Recursos hídricos</h4><p>Nascentes, drenagem e reservatórios identificados a partir do relevo do terreno.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Comunidades e servidões</h4><p>Sobreposição com territórios tradicionais e faixas de servidão.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Imagens de satélite</h4><p>Verificação visual ao longo do tempo para confirmar o uso atual do solo.</p></div>
-    <div class="check-card"><div class="icon"></div><h4>Relatório final</h4><p>Documento com mapas, laudo técnico e classificação de risco da área.</p></div>
-  </div>
-</section>
-
-<section class="wrap" id="camadas">
-  <div class="section-head">
+</section><section class="wrap biome-section"><div class="biome-band"><div class="eyebrow">Cobertura nacional</div><h2>Cada imóvel tem seu contexto.</h2><p>O TerraCheck considera os critérios legais aplicáveis à localização e ao bioma nas verificações de APP e Reserva Legal.</p><div class="biome-list"><span>Amazônia</span><span>Cerrado</span><span>Mata Atlântica</span><span>Caatinga</span><span>Pampa</span><span>Pantanal</span></div><p class="biome-note">Os resultados apoiam a avaliação do imóvel e a verificação por profissionais habilitados.</p></div></section><section class="wrap" id="profissionais"><div class="professional-band"><div><div class="eyebrow">Para quem atua no agro</div><h2>Mais informação para orientar seus clientes.</h2><p>Agrônomos, advogados, técnicos e corretores rurais: reúna mapas e evidências para apoiar sua análise de imóveis.</p><ul><li>Avalie uma área antes de uma compra ou venda.</li><li>Localize alertas e organize os pontos de verificação.</li><li>Compartilhe o relatório com sua equipe ou cliente.</li></ul></div><div class="professional-offer"><span class="price-table-kicker">ANÁLISES RECORRENTES</span><h3>Consulte condições por volume.</h3><p>Entre em contato, conte sua demanda e consulte os descontos e as condições aplicáveis à sua conta.</p><a class="btn-primary" href="https://wa.me/5511915980119?text=Ol%C3%A1%21%20Quero%20consultar%20as%20condi%C3%A7%C3%B5es%20por%20volume%20do%20TerraCheck." target="_blank" rel="noopener">Falar sobre volume ↗</a><p class="offer-note">Pagamento antecipado por análise, por PIX ou cartão.</p></div></div></section><section class="wrap" id="precos"><div class="pricing-band pricing-expanded">
+<div class="pricing-intro"><div class="eyebrow">Preço por análise</div><h2>Uma tabela para todo o Brasil.</h2><p>O preço depende da área do imóvel. Confira o valor na plataforma antes de confirmar o pagamento.</p>
+<div class="pricing-highlight"><span>IMÓVEIS DE ATÉ 50 HA</span><strong>R$ 69,90</strong><small>por análise · sem mensalidade</small></div>
+<p>Pagamento antecipado por PIX ou cartão em até 6x.</p><a class="btn-invert" href="https://app.terracheck.com.br/registrar">Analisar meu imóvel ↗</a></div>
+<div class="price-examples"><div class="price-examples-head"><div><span class="price-table-kicker">TABELA NACIONAL</span><strong>Área do imóvel e preço</strong></div></div><div class="price-table-scroll"><table class="price-table"><caption class="sr-only">Preço público por análise, conforme a área do imóvel</caption><thead><tr><th scope="col">Área do imóvel</th><th scope="col">Por análise</th></tr></thead><tbody><tr><td>Até 50 ha</td><td>R$ 69,90</td></tr>
+<tr><td>Acima de 50 até 100 ha</td><td>R$ 79,90</td></tr>
+<tr><td>Acima de 100 até 200 ha</td><td>R$ 99,90</td></tr>
+<tr><td>Acima de 200 até 500 ha</td><td>R$ 129,90</td></tr>
+<tr><td>Acima de 500 até 1.000 ha</td><td>R$ 159,90</td></tr>
+<tr><td>Acima de 1.000 até 2.000 ha</td><td>R$ 199,90</td></tr>
+<tr><td>Acima de 2.000 até 5.000 ha</td><td>R$ 249,90</td></tr>
+<tr><td>Acima de 5.000 até 10.000 ha</td><td>R$ 349,90</td></tr>
+<tr><td>Acima de 10.000 até 20.000 ha</td><td>R$ 499,90</td></tr>
+<tr><td>Acima de 20.000 até 30.000 ha</td><td>R$ 649,90</td></tr>
+<tr><td>Acima de 30.000 até 40.000 ha</td><td>R$ 799,90</td></tr>
+<tr><td>Acima de 40.000 até 50.000 ha</td><td>R$ 949,90</td></tr><tr><td>Acima de 50.000 ha</td><td><a href="#contato">Sob consulta</a></td></tr></tbody></table></div><p class="price-note">Mesmos preços em todos os estados. Para imóveis acima de 50.000 ha, solicite um orçamento personalizado.</p></div></div></section><section class="wrap" id="camadas">
+  <details class="technical-details"><summary>Conheça as camadas técnicas da análise</summary><div class="section-head">
     <div class="eyebrow">Para quem quer o detalhe técnico</div>
     <h2>Cada camada do mapa, explicada.</h2>
-    <p>O laudo resumido acima é gerado a partir de 23 camadas de dado geoespacial, cruzadas automaticamente. Se você quer entender exatamente o que cada uma significa, está tudo aqui.</p>
+    <p>As verificações combinam diferentes fontes geoespaciais. A disponibilidade e a resolução dos dados variam conforme o imóvel e a base consultada.</p>
   </div>
-  <div class="camadas-list">
+  <div class="camadas-list"><div class="camada-item"><span class="camada-nome">Sobreposição com CAR vizinho</span><span class="camada-desc">Interseção espacial com o cadastro de outro imóvel, identificada junto aos limites das áreas.</span></div>
     <div class="camada-item">
       <span class="camada-nome">APP</span>
       <span class="camada-desc">Área de Preservação Permanente, calculada a partir de cursos d'água e relevo do terreno.</span>
@@ -1196,7 +1149,7 @@
     </div>
     <div class="camada-item">
       <span class="camada-nome">Linha de drenagem (estimada)</span>
-      <span class="camada-desc">Curso d'água calculado pelo relevo do terreno, não pelo que foi declarado — pega água real que não foi informada.</span>
+      <span class="camada-desc">Curso d'água calculado pelo relevo do terreno, não pelo que foi declarado — indica drenagens estimadas que podem não constar no cadastro.</span>
     </div>
     <div class="camada-item">
       <span class="camada-nome">Nascente</span>
@@ -1204,7 +1157,7 @@
     </div>
     <div class="camada-item">
       <span class="camada-nome">Nascente (estimada)</span>
-      <span class="camada-desc">Nascente identificada pelo relevo do terreno, mesmo sem estar declarada.</span>
+      <span class="camada-desc">Possível nascente estimada pelo relevo, sujeita a confirmação em campo.</span>
     </div>
     <div class="camada-item">
       <span class="camada-nome">Represa — declarada no CAR</span>
@@ -1227,8 +1180,8 @@
       <span class="camada-desc">Área que o proprietário informou como Reserva Legal no CAR.</span>
     </div>
     <div class="camada-item">
-      <span class="camada-nome">Conflito na RL — incorreto</span>
-      <span class="camada-desc">Onde a Reserva Legal declarada não bate com a realidade — uso antrópico dentro dela.</span>
+      <span class="camada-nome">Possível conflito na Reserva Legal</span>
+      <span class="camada-desc">Áreas de uso antrópico identificadas dentro da Reserva Legal declarada, para avaliação das regras aplicáveis.</span>
     </div>
     <div class="camada-item">
       <span class="camada-nome">Perímetro do imóvel</span>
@@ -1248,7 +1201,7 @@
     </div>
     <div class="camada-item">
       <span class="camada-nome">Imagem Sentinel-2 (atual)</span>
-      <span class="camada-desc">Foto de satélite real e recente da propriedade, não um mapa vetorial.</span>
+      <span class="camada-desc">Imagem de satélite da propriedade, conforme disponibilidade e condições de observação.</span>
     </div>
     <div class="camada-item">
       <span class="camada-nome">Edificação sob LT (risco)</span>
@@ -1271,7 +1224,26 @@
       <span class="camada-desc">Verifica se a propriedade sobrepõe uma Unidade de Conservação, além das Terras Indígenas e territórios quilombolas.</span>
     </div>
   </div>
+  </details>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section class="wrap" id="faq">
   <div class="section-head">
@@ -1281,7 +1253,7 @@
   <div class="faq-list">
     <details class="faq-item" open>
       <summary>Como a TerraCheck analisa uma propriedade?</summary>
-      <p>Você informa coordenadas, número de CAR ou matrícula do imóvel. A plataforma cruza automaticamente essa área com bases públicas (SICAR, IBAMA, MapBiomas), imagens de satélite (Sentinel-2, CBERS) e modelos geoespaciais, e gera um laudo com o que foi declarado versus o que existe de fato na área.</p>
+      <p>Você localiza o imóvel por coordenadas ou número do CAR. A plataforma cruza o perímetro com bases oficiais, imagens de satélite e modelos geoespaciais, e organiza os resultados em mapas e relatório em PDF.</p>
     </details>
     <details class="faq-item">
       <summary>Quanto tempo demora?</summary>
@@ -1289,7 +1261,7 @@
     </details>
     <details class="faq-item">
       <summary>Preciso de algum dado técnico pra começar?</summary>
-      <p>Não. Basta ter as coordenadas, o número do CAR ou a matrícula do imóvel — o que você já tiver em mãos. Não é preciso enviar arquivos, shapefiles ou fazer visita técnica.</p>
+      <p>Comece com as coordenadas ou o número do CAR. Se você tem apenas a matrícula, entre em contato para verificar as informações necessárias à localização da área.</p>
     </details>
     <details class="faq-item">
       <summary>O laudo substitui um laudo técnico ou parecer jurídico?</summary>
@@ -1297,7 +1269,7 @@
     </details>
     <details class="faq-item">
       <summary>Como funciona o pagamento?</summary>
-      <p>Via PIX, direto na plataforma. Você vê o valor da análise antes de confirmar, e o processamento começa assim que o pagamento é confirmado — sem contrato, sem mensalidade obrigatória.</p>
+      <p>O pagamento é antecipado, por análise, via PIX ou cartão em até 6x. Você vê o valor conforme a área antes de confirmar. O processamento começa após a confirmação do pagamento; não há mensalidade obrigatória.</p>
     </details>
     <details class="faq-item">
       <summary>Vocês usam inteligência artificial no laudo?</summary>
@@ -1314,7 +1286,7 @@
   <div class="footer-grid">
     <div class="footer-cta">
       <div class="eyebrow">Pronto para checar uma área?</div>
-      <h2>Fale com a gente antes de fechar negócio.</h2>
+      <h2>Vamos olhar sua área com mais informação?</h2>
     </div>
     <div class="footer-links">
       <a href="mailto:contato@terracheck.com.br">contato@terracheck.com.br</a>
