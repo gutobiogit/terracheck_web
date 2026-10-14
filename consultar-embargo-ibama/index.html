@@ -128,6 +128,7 @@
   }
   h2 { font-size: clamp(22px, 3vw, 28px); line-height: 1.2; margin: 52px 0 14px; color: var(--ink); }
   h3 { font-size: 18px; font-weight: 600; margin: 28px 0 8px; color: var(--moss-deep); }
+  article p a, article li a { color: var(--moss-deep); text-decoration: none; border-bottom: 1px dashed var(--moss); }
   p { font-size: 15.5px; color: var(--ink-soft); margin-bottom: 14px; max-width: 68ch; }
   ul, ol { margin: 8px 0 16px 22px; }
   li { font-size: 15.5px; color: var(--ink-soft); margin-bottom: 8px; max-width: 66ch; }
@@ -254,8 +255,8 @@
     <h2>Onde consultar</h2>
 
     <h3>1. Lista pública de áreas embargadas do IBAMA</h3>
-    <p>O IBAMA mantém uma consulta pública de áreas embargadas no seu portal de serviços. A busca pode ser feita por CPF ou CNPJ do autuado, nome, município ou número do termo de embargo. O resultado mostra o termo, a data, o município e a área embargada.</p>
-    <p>O IBAMA também publica a base completa em dados abertos, com os polígonos georreferenciados das áreas embargadas, que podem ser abertos em programas de geoprocessamento como QGIS.</p>
+    <p>O IBAMA mantém uma <a href="https://www.gov.br/ibama/pt-br/servicos/consultas/autuacoes-e-embargos/areas-embargadas" target="_blank" rel="noopener">consulta pública de áreas embargadas</a> no portal gov.br. A busca pode ser feita por CPF ou CNPJ do autuado, nome, município ou número do termo de embargo. O resultado mostra o termo, a data, o município e a área embargada. O próprio IBAMA publica um <a href="https://www.gov.br/ibama/pt-br/servicos/consultas/autuacoes-e-embargos/areas-embargadas/manual_consulta_embargos.pdf/@@download/file" target="_blank" rel="noopener">manual da consulta</a>.</p>
+    <p>A base completa também está no <a href="https://dadosabertos.ibama.gov.br/dataset/fiscalizacao-termo-de-embargo" target="_blank" rel="noopener">portal de dados abertos do IBAMA (termos de embargo)</a>, com os polígonos georreferenciados das áreas embargadas, que podem ser abertos em programas de geoprocessamento como QGIS.</p>
 
     <h3>2. Órgãos estaduais</h3>
     <p>Secretarias estaduais de meio ambiente também aplicam embargos, e eles <strong>não aparecem na lista do IBAMA</strong>. Em estados como Mato Grosso e Pará, a secretaria estadual tem lista própria. Uma verificação completa precisa cobrir o órgão estadual do local do imóvel.</p>
@@ -335,6 +336,15 @@
       <summary>Embargos estaduais aparecem na lista do IBAMA?</summary>
       <p>Não. Cada órgão estadual mantém sua própria lista. É preciso consultar o órgão ambiental do estado onde o imóvel está.</p>
     </details>
+
+    <h2>Fontes</h2>
+    <ul>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/leis/l9605.htm" target="_blank" rel="noopener">Lei 9.605/1998 — Lei de Crimes Ambientais</a></li>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6514.htm" target="_blank" rel="noopener">Decreto 6.514/2008 — infrações e sanções administrativas ambientais</a></li>
+      <li><a href="https://www.gov.br/ibama/pt-br/servicos/consultas/autuacoes-e-embargos/areas-embargadas" target="_blank" rel="noopener">IBAMA — consulta de áreas embargadas</a></li>
+      <li><a href="https://dadosabertos.ibama.gov.br/dataset/fiscalizacao-termo-de-embargo" target="_blank" rel="noopener">IBAMA — dados abertos de termos de embargo</a></li>
+      <li>STJ — Súmula 623 (natureza <em>propter rem</em> das obrigações ambientais)</li>
+    </ul>
 
     <p class="disclaimer">Este conteúdo é informativo e não substitui a análise jurídica do caso concreto. Veja o <a href="/aviso-legal.html">Aviso Legal</a>.</p>
   </article>
