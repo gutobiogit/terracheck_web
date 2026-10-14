@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como consultar embargo do IBAMA em um imóvel rural — TerraCheck</title>
+<meta name="description" content="Passo a passo para verificar se uma fazenda tem embargo ambiental do IBAMA antes de comprar ou arrendar — e por que a busca só pelo CPF do vendedor não basta.">
+<link rel="canonical" href="https://terracheck.com.br/consultar-embargo-ibama/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/embedded/18ea41b056e23717.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/embedded/21f987d8414cd698.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/assets/embedded/21f987d8414cd698.png">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="TerraCheck">
+<meta property="og:title" content="Como consultar embargo do IBAMA em um imóvel rural">
+<meta property="og:description" content="Passo a passo para verificar embargo ambiental antes de comprar ou arrendar uma fazenda — e por que a busca pelo CPF do vendedor não basta.">
+<meta property="og:url" content="https://terracheck.com.br/consultar-embargo-ibama/">
+<meta property="og:image" content="https://terracheck.com.br/assets/embedded/287e888427be6478.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Como consultar embargo do IBAMA em um imóvel rural",
+      "description": "Passo a passo para verificar se uma fazenda tem embargo ambiental do IBAMA antes de comprar ou arrendar.",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-10-14",
+      "dateModified": "2026-10-14",
+      "image": "https://terracheck.com.br/assets/embedded/287e888427be6478.jpg",
+      "author": { "@type": "Organization", "@id": "https://terracheck.com.br/#organization", "name": "TerraCheck" },
+      "publisher": { "@id": "https://terracheck.com.br/#organization" },
+      "mainEntityOfPage": "https://terracheck.com.br/consultar-embargo-ibama/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "TerraCheck", "item": "https://terracheck.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Consultar embargo IBAMA", "item": "https://terracheck.com.br/consultar-embargo-ibama/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --paper: #F1EDE3;
+    --paper-card: #FBF9F3;
+    --ink: #1C2B22;
+    --ink-soft: #3A4A3E;
+    --line: #C9BFA8;
+    --soil: #5c8a52;
+    --moss: #4C6B54;
+    --moss-deep: #33473A;
+    --alert-bg: #F3E3D6;
+    --alert-ink: #B5652D;
+    --ok-bg: #E1E8DD;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+  /* nav — mesmo padrão da home */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; padding: 28px 32px; max-width: 1120px; margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 3px; text-decoration: none; }
+  .logo-icon { flex-shrink: 0; display: block; width: 44px; height: 44px; }
+  .logo-text {
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 25px;
+    letter-spacing: -0.02em; display: flex; flex-direction: column; gap: 2px; line-height: 1.05;
+  }
+  .logo-text b { font: inherit; }
+  .logo-text .brand-check { color: #5c8a52; }
+  .logo-text > span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--ink-soft);
+    font-weight: 500; letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .btn-ghost {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft);
+    text-decoration: none; border-bottom: 1px dashed var(--line); padding-bottom: 2px;
+  }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.03em;
+    padding: 10px 20px; border: 1.5px solid var(--ink); border-radius: 3px;
+    text-decoration: none; transition: background .15s ease, color .15s ease;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+  /* article */
+  main { padding: 20px 0 40px; }
+  .crumbs {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .crumbs a { text-decoration: none; border-bottom: 1px dashed var(--line); }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--moss-deep);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ''; width: 7px; height: 7px; background: var(--soil);
+    display: inline-block; transform: rotate(45deg);
+  }
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(32px, 5vw, 46px); line-height: 1.1; margin: 16px 0 18px; }
+  .lede { font-size: 17.5px; color: var(--ink-soft); max-width: 60ch; margin-bottom: 14px; }
+  .updated {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft);
+    margin-bottom: 36px;
+  }
+  h2 { font-size: clamp(22px, 3vw, 28px); line-height: 1.2; margin: 52px 0 14px; color: var(--ink); }
+  h3 { font-size: 18px; font-weight: 600; margin: 28px 0 8px; color: var(--moss-deep); }
+  p { font-size: 15.5px; color: var(--ink-soft); margin-bottom: 14px; max-width: 68ch; }
+  ul, ol { margin: 8px 0 16px 22px; }
+  li { font-size: 15.5px; color: var(--ink-soft); margin-bottom: 8px; max-width: 66ch; }
+  strong { color: var(--ink); }
+
+  .callout {
+    margin: 28px 0; padding: 16px 18px;
+    border-left: 3px solid var(--alert-ink); background: var(--alert-bg);
+    border-radius: 0 4px 4px 0;
+  }
+  .callout p { margin: 0; color: var(--ink); font-size: 15px; }
+  .note {
+    margin: 28px 0; padding: 16px 18px;
+    border-left: 3px solid var(--soil); background: rgba(76, 107, 84, 0.08);
+  }
+  .note p { margin: 0; font-size: 15px; }
+
+  .table-card {
+    background: var(--paper-card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 8px 18px; margin: 22px 0; overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line);
+  }
+  td { padding: 12px 10px; border-bottom: 1px solid #E3DDCF; vertical-align: top; color: var(--ink-soft); min-width: 140px; }
+  td:first-child { color: var(--ink); font-weight: 500; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.best td { background: var(--ok-bg); }
+
+  .cta-band {
+    background: var(--ink); color: var(--paper); border-radius: 6px;
+    padding: 44px 36px; margin: 52px 0; text-align: center;
+  }
+  .cta-band .eyebrow { color: #C9BFA8; justify-content: center; }
+  .cta-band .eyebrow::before { background: #8fbf83; }
+  .cta-band h2 { color: var(--paper); margin: 14px auto 12px; font-size: clamp(24px, 3.4vw, 32px); max-width: 20ch; }
+  .cta-band p { color: #CBD1C6; margin: 0 auto 26px; max-width: 50ch; }
+  .btn-invert {
+    display: inline-block; background: var(--paper); color: var(--ink);
+    font-weight: 600; font-size: 15px; padding: 15px 26px; border-radius: 3px;
+    text-decoration: none; border: 1.5px solid var(--paper);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn-invert:hover { background: transparent; color: var(--paper); transform: translateY(-1px); }
+  .cta-band .sub { display: block; margin-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #A9B5A0; }
+  .cta-band .sub a { color: #CBD1C6; }
+
+  .faq-item { border-bottom: 1px solid var(--line); padding: 20px 0; }
+  .faq-item summary {
+    cursor: pointer; font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px;
+    color: var(--ink); list-style: none; display: flex; justify-content: space-between;
+    align-items: center; gap: 20px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 400;
+    color: var(--soil); flex-shrink: 0; transition: transform .15s ease;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { margin-top: 12px; font-size: 14.5px; }
+
+  .disclaimer { font-size: 13px; margin-top: 36px; }
+  .disclaimer a { border-bottom: 1px dashed var(--line); text-decoration: none; }
+
+  footer {
+    border-top: 1px solid var(--line); padding: 30px 0 40px; margin-top: 40px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  footer a { text-decoration: none; border-bottom: 1px dashed var(--line); }
+
+  :focus-visible { outline: 2px solid var(--soil); outline-offset: 2px; }
+
+  @media (max-width: 520px) {
+    nav { flex-wrap: wrap; padding: 20px; gap: 16px; }
+    .nav-links { width: 100%; justify-content: space-between; gap: 10px; }
+    .nav-cta { padding: 9px 12px; font-size: 11px; }
+    .btn-ghost { font-size: 11px; }
+    .wrap { padding: 0 20px; }
+    .cta-band { padding: 34px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">
+    <svg class="logo-icon" viewBox="0 0 300 300" width="44" height="44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M95,140 C75,165 100,200 130,205 C175,180 210,120 240,70 C215,100 180,150 138,185 C112,178 100,160 95,140 Z" fill="#5c8a52"/></svg>
+    <span class="logo-text"><b>Terra<span class="brand-check">Check</span></b><span>DUE DILIGENCE GEOESPACIAL</span></span>
+  </a>
+  <div class="nav-links">
+    <a class="btn-ghost" href="https://demo.terracheck.com.br">Experimentar grátis ↗</a>
+    <a class="nav-cta" href="https://app.terracheck.com.br/registrar">Consultar propriedade</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="crumbs"><a href="/">Início</a> / Guias / Embargo IBAMA</div>
+
+  <article>
+    <div class="eyebrow">Guia · Due diligence ambiental</div>
+    <h1>Como consultar embargo do IBAMA em um imóvel rural</h1>
+    <p class="lede">Antes de comprar, arrendar ou financiar uma fazenda, verificar se existe embargo ambiental é obrigatório. O problema é que a consulta mais comum, pelo CPF do vendedor, deixa passar justamente os casos mais perigosos.</p>
+    <div class="updated">Atualizado em 14 de outubro de 2026</div>
+
+    <h2>O que é um embargo ambiental</h2>
+    <p>O embargo é uma sanção administrativa prevista na Lei de Crimes Ambientais (Lei 9.605/1998) e regulamentada pelo Decreto 6.514/2008. Ele é aplicado sobre a <strong>área</strong> onde ocorreu a infração, normalmente desmatamento ou uso irregular de vegetação nativa, e proíbe a continuidade das atividades naquele local até a regularização.</p>
+    <p>Na prática, uma área embargada:</p>
+    <ul>
+      <li>não pode ser usada para plantio ou pastagem enquanto o embargo vigorar;</li>
+      <li>fica impedida de acessar crédito rural nos bancos;</li>
+      <li>tem a produção travada, porque frigoríficos, tradings e compradores de grãos consultam a lista de embargos antes de fechar negócio;</li>
+      <li>pode gerar novas autuações a quem descumprir o embargo, inclusive a quem comprar ou comercializar produtos vindos dela.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Por que isso importa para quem compra:</strong> o Superior Tribunal de Justiça consolidou na Súmula 623 que as obrigações ambientais acompanham o imóvel. Elas podem ser cobradas do proprietário ou possuidor atual, e não só de quem causou o dano. Comprar uma área embargada significa herdar o problema.</p>
+    </div>
+
+    <h2>Onde consultar</h2>
+
+    <h3>1. Lista pública de áreas embargadas do IBAMA</h3>
+    <p>O IBAMA mantém uma consulta pública de áreas embargadas no seu portal de serviços. A busca pode ser feita por CPF ou CNPJ do autuado, nome, município ou número do termo de embargo. O resultado mostra o termo, a data, o município e a área embargada.</p>
+    <p>O IBAMA também publica a base completa em dados abertos, com os polígonos georreferenciados das áreas embargadas, que podem ser abertos em programas de geoprocessamento como QGIS.</p>
+
+    <h3>2. Órgãos estaduais</h3>
+    <p>Secretarias estaduais de meio ambiente também aplicam embargos, e eles <strong>não aparecem na lista do IBAMA</strong>. Em estados como Mato Grosso e Pará, a secretaria estadual tem lista própria. Uma verificação completa precisa cobrir o órgão estadual do local do imóvel.</p>
+
+    <h3>3. ICMBio</h3>
+    <p>Imóveis dentro ou no entorno de unidades de conservação federais podem ter embargos lavrados pelo ICMBio, que mantém sua própria base.</p>
+
+    <h2>A armadilha: consultar só pelo CPF do vendedor</h2>
+    <p>O embargo fica registrado no nome de quem cometeu a infração, mas recai sobre a área. Se a fazenda foi vendida, desmembrada ou passou por herança depois da autuação, o CPF de quem está vendendo hoje pode não ter nenhum registro, enquanto parte da terra continua embargada.</p>
+    <p>Por isso, a verificação que realmente protege o comprador é <strong>espacial</strong>: cruzar o perímetro do imóvel com os polígonos de embargo, independentemente de quem foi autuado.</p>
+
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr><th>Método</th><th>Encontra</th><th>Deixa passar</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Busca por CPF/CNPJ do vendedor</td>
+            <td>Embargos lavrados contra o próprio vendedor</td>
+            <td>Embargos de antigos donos, posseiros, arrendatários ou de áreas vizinhas que avançam sobre o imóvel</td>
+          </tr>
+          <tr>
+            <td>Busca por município</td>
+            <td>Todos os embargos da região</td>
+            <td>Não diz quais atingem o imóvel; exige conferência manual do mapa</td>
+          </tr>
+          <tr class="best">
+            <td>Cruzamento do perímetro do CAR com os polígonos</td>
+            <td>Qualquer embargo que sobreponha a área, com a extensão da sobreposição</td>
+            <td>Depende de o CAR estar desenhado corretamente</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Passo a passo para uma verificação espacial</h2>
+    <ol>
+      <li><strong>Obtenha o número do CAR</strong> do imóvel com o vendedor ou corretor. Ele permite baixar o perímetro declarado no SICAR.</li>
+      <li><strong>Baixe a base de áreas embargadas</strong> do IBAMA e as bases estaduais aplicáveis.</li>
+      <li><strong>Cruze os polígonos</strong> em um software de geoprocessamento e calcule a área de interseção.</li>
+      <li><strong>Para cada sobreposição, levante o termo de embargo</strong>: data, motivo, situação (ativo, suspenso ou cancelado) e se há processo de regularização.</li>
+      <li><strong>Confira o uso atual do solo</strong> por imagem de satélite recente. Atividade produtiva sobre área embargada é sinal de descumprimento, o que agrava a situação.</li>
+    </ol>
+
+    <div class="note">
+      <p>Também vale verificar o restante da situação ambiental do imóvel: sobreposição com outros CARs, déficit de Reserva Legal, APP, linhas de transmissão e terras indígenas ou quilombolas. Embargo é um dos riscos, não o único.</p>
+    </div>
+
+    <div class="cta-band">
+      <div class="eyebrow">Sem instalar nada</div>
+      <h2>Faça essa verificação pelo número do CAR.</h2>
+      <p>O TerraCheck cruza o perímetro do imóvel com os embargos do IBAMA e mostra a sobreposição no mapa, junto com as demais camadas ambientais.</p>
+      <a class="btn-invert" href="https://demo.terracheck.com.br">Experimentar a demonstração ↗</a>
+      <span class="sub">Análise completa a partir de R$ 69,90 · <a href="https://app.terracheck.com.br/registrar">consultar propriedade</a></span>
+    </div>
+
+    <h2>Perguntas frequentes</h2>
+
+    <details class="faq-item">
+      <summary>Embargo do IBAMA impede a venda do imóvel?</summary>
+      <p>Não há proibição de transferir a propriedade, mas o embargo continua valendo sobre a área depois da venda, e as obrigações de recuperação passam ao novo proprietário. Na prática, áreas embargadas perdem acesso a crédito e mercado, o que afeta muito o valor.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Como saber se um embargo ainda está ativo?</summary>
+      <p>A consulta pública do IBAMA informa a situação do termo. Mesmo assim, para uma decisão de compra, vale pedir ao vendedor a documentação do processo administrativo e, se houver, o termo de compromisso de recuperação ou a decisão de desembargo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Um embargo pode ser retirado?</summary>
+      <p>Sim. O desembargo pode ocorrer após a regularização ambiental da área, normalmente com a apresentação e execução de um projeto de recuperação aprovado pelo órgão que aplicou a sanção, ou por decisão em recurso administrativo ou judicial.</p>
+    </details>
+    <details class="faq-item">
+      <summary>A consulta pelo CPF do vendedor é suficiente?</summary>
+      <p>Não. Ela só encontra embargos lavrados contra aquela pessoa. Embargos de proprietários anteriores ou de terceiros que ocuparam a área só aparecem no cruzamento espacial com o perímetro do imóvel.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Embargos estaduais aparecem na lista do IBAMA?</summary>
+      <p>Não. Cada órgão estadual mantém sua própria lista. É preciso consultar o órgão ambiental do estado onde o imóvel está.</p>
+    </details>
+
+    <p class="disclaimer">Este conteúdo é informativo e não substitui a análise jurídica do caso concreto. Veja o <a href="/aviso-legal.html">Aviso Legal</a>.</p>
+  </article>
+</main>
+
+<footer class="wrap">
+  <span>TerraCheck © 2026</span>
+  <span><a href="/aviso-legal.html">Aviso Legal</a> · <a href="/privacidade.html">Política de Privacidade</a></span>
+</footer>
+
+<!-- TerraCheck attribution + consent + marketing tags -->
+<script src="/terracheck-attribution.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+<script src="/ga4-loader.js" defer></script>
+<script src="/meta-pixel-loader.js" defer></script>
+<script src="/linkedin-insight-loader.js" defer></script>
+
+</body>
+</html>
